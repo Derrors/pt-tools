@@ -19,6 +19,7 @@
     <modules>
         <module>tools-data</module>
         <module>tools-app</module>
+        <module>tools-common</module>
     </modules>
 
     <properties>
@@ -26,6 +27,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+        <pt-tools.version>0.0.1-SNAPSHOT</pt-tools.version>
         <mysql-connector.version>8.0.33</mysql-connector.version>
         <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
         <mybatis-plus-generator.version>3.5.3.1</mybatis-plus-generator.version>
@@ -62,6 +64,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
 
         <!-- Mysql JDBC 驱动 -->
         <dependency>
@@ -81,23 +89,29 @@
             <artifactId>mybatis-plus-generator</artifactId>
             <version>${mybatis-plus-generator.version}</version>
         </dependency>
-
-        <!-- Lombok -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <!-- hutool 工具 -->
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>${hutool.version}</version>
-        </dependency>
-
-
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- hutool 工具 -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.derrors</groupId>
+                <artifactId>tools-common</artifactId>
+                <version>${pt-tools.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.derrors</groupId>
+                <artifactId>tools-data</artifactId>
+                <version>${pt-tools.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 <!--    <build>-->
 <!--        <plugins>-->

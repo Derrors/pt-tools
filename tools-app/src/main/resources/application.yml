@@ -21,3 +21,22 @@ datasource:
 #    # 数据库连接超时时间,默认30秒，即30000
 #    connection-timeout: 30000
 #    connection-test-query: SELECT 1 FROM DUAL
+
+# mybatis plus
+mybatis-plus:
+  mapper-locations: classpath:com/derrors/pt/tools/data/**/mapper/*Mapper.xml
+  global-config:
+    db-config:
+      id-type: auto                     # 主键类型
+      logic-delete-field: is_deleted    # 逻辑删除配置
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+    banner: false
+
+# 日志配置
+logging:
+  level:
+    com.com.derrors: debug
+    org.springframework: info
+  file:
+    path: logs
