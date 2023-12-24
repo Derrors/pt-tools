@@ -17,4 +17,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.derrors</groupId>
+            <artifactId>tools-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.derrors</groupId>
+            <artifactId>tools-data</artifactId>
+        </dependency>
+    </dependencies>
 </project>

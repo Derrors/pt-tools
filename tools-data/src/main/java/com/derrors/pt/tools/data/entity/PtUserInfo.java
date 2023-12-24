@@ -1,7 +1,9 @@
 package com.derrors.pt.tools.data.entity;
 
 import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.derrors.pt.tools.common.core.base.BaseEntity;
 
+import java.io.Serial;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -18,6 +20,9 @@ import java.util.Map;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class PtUserInfo extends BaseEntity<PtUserInfo> {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     /**
      * 用户 Id

@@ -1,7 +1,9 @@
 package com.derrors.pt.tools.data.entity;
 
 import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.derrors.pt.tools.common.core.base.BaseEntity;
 
+import java.io.Serial;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,25 +24,33 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 public class PtNode extends BaseEntity<PtNode> {
 
+    @Serial
+    private static final long serialVersionUID = 1L;
+
     /**
      * 站点名称
      */
-    private String ptName;
+    private String name;
+
+    /**
+     * 站点简称
+     */
+    private String alias;
 
     /**
      * 站点 Code
      */
-    private String ptCode;
+    private String code;
 
     /**
      * 站点地址
      */
-    private String ptUrl;
+    private String url;
 
     /**
      * 站点描述
      */
-    private String ptDescription;
+    private String description;
 
     /**
      * 是否删除 1:已删除 0:未删除
@@ -51,9 +61,10 @@ public class PtNode extends BaseEntity<PtNode> {
     /**
      * 数据库字段
      */
-    public static final String PT_NAME = "pt_name";
-    public static final String PT_DESC = "pt_description";
-    public static final String PT_CODE = "pt_code";
-    public static final String PT_URL = "pt_url";
+    public static final String NAME = "name";
+    public static final String ALIAS = "alias";
+    public static final String DESC = "description";
+    public static final String CODE = "code";
+    public static final String URL = "url";
     public static final String IS_DELETED = "id_deleted";
 }

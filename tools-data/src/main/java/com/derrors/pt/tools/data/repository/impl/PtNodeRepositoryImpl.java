@@ -40,10 +40,10 @@ public class PtNodeRepositoryImpl implements PtNodeRepository {
 
     @Override
     public int savePtNode(PtNode ptNode) {
-        if (Objects.isNull(ptNode) || StringUtils.isBlank(ptNode.getPtCode())) {
+        if (Objects.isNull(ptNode) || StringUtils.isBlank(ptNode.getCode())) {
             return 0;
         }
-        List<PtNode> ptNodesInDb = getByPtCodes(Collections.singletonList(ptNode.getPtCode()));
+        List<PtNode> ptNodesInDb = getByPtCodes(Collections.singletonList(ptNode.getCode()));
         if (CollectionUtil.isEmpty(ptNodesInDb)) {
             // 数据没有 PtNode，新增
             log.info("PtNode: {} is not exist in DB, do insert.", ptNode);
@@ -54,10 +54,11 @@ public class PtNodeRepositoryImpl implements PtNodeRepository {
         PtNode toUpdate = ptNodesInDb.get(0);
         UpdateWrapper<PtNode> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq(PtNode.ID, toUpdate.getId())
-            .set(StringUtils.isNotBlank(ptNode.getPtName()), PtNode.PT_NAME, ptNode.getPtName())
-            .set(StringUtils.isNotBlank(ptNode.getPtCode()), PtNode.PT_CODE, ptNode.getPtCode())
-            .set(StringUtils.isNotBlank(ptNode.getPtUrl()), PtNode.PT_URL, ptNode.getPtUrl())
-            .set(StringUtils.isNotBlank(ptNode.getPtDescription()), PtNode.PT_DESC, ptNode.getPtDescription());
+            .set(StringUtils.isNotBlank(ptNode.getName()), PtNode.NAME, ptNode.getName())
+            .set(StringUtils.isNotBlank(ptNode.getAlias()), PtNode.ALIAS, ptNode.getAlias())
+            .set(StringUtils.isNotBlank(ptNode.getCode()), PtNode.CODE, ptNode.getCode())
+            .set(StringUtils.isNotBlank(ptNode.getUrl()), PtNode.URL, ptNode.getUrl())
+            .set(StringUtils.isNotBlank(ptNode.getDescription()), PtNode.DESC, ptNode.getDescription());
         return ptNodeMapper.update(null, updateWrapper);
     }
 
@@ -67,7 +68,7 @@ public class PtNodeRepositoryImpl implements PtNodeRepository {
             return Collections.emptyList();
         }
         QueryWrapper<PtNode> queryWrapper = new QueryWrapper<PtNode>()
-            .in(PtNode.PT_CODE, ptCodes)
+            .in(PtNode.CODE, ptCodes)
             .eq(PtNode.IS_DELETED, 0);
         List<PtNode> ptNodesInDb = ptNodeMapper.selectList(queryWrapper);
         if (CollectionUtil.isEmpty(ptNodesInDb)) {
@@ -83,7 +84,7 @@ public class PtNodeRepositoryImpl implements PtNodeRepository {
             return 0;
         }
         UpdateWrapper<PtNode> updateWrapper = new UpdateWrapper<>();
-        updateWrapper.eq(PtNode.PT_CODE, ptCode)
+        updateWrapper.eq(PtNode.CODE, ptCode)
             .set(PtNode.IS_DELETED, 1);
         return ptNodeMapper.update(null, updateWrapper);
     }

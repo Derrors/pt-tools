@@ -1,4 +1,4 @@
-package com.derrors.pt.tools.data.entity;
+package com.derrors.pt.tools.common.core.base;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -17,7 +17,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class BaseEntity<T extends BaseEntity> extends Model {
+public class BaseEntity<T extends Model<?>> extends Model<T> {
 
     /**
      * 主键

@@ -1,42 +1,20 @@
-# 数据库配置
-datasource:
-  type: com.zaxxer.hikari.HikariDataSource
-  driverClassName: com.mysql.cj.jdbc.Driver
-  url: jdbc:mysql://localhost:3306/pt_tools
-  username: pt-tools
-  password: pt-tools-password
-#  # Hikari 连接池配置
-#  hikari:
-#    # 最小空闲连接数量
-#    minimum-idle: 5
-#    # 空闲连接存活最大时间，默认600000（10分钟）
-#    idle-timeout: 900000
-#    # 连接池最大连接数，默认是10
-#    maximum-pool-size: 50
-#    # 此属性控制从池返回的连接的默认自动提交行为,默认值：true
-#    auto-commit: true
-#    # 连接池名称      pool-name: MyHikariCP
-#    # 此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
-#    max-lifetime: 1800000
-#    # 数据库连接超时时间,默认30秒，即30000
-#    connection-timeout: 30000
-#    connection-test-query: SELECT 1 FROM DUAL
+# 开发环境配置
+server:
+  port: 8300                # HTTP 端口
+  servlet:
+    context-path: /         # 应用的访问路径
+  max-http-request-header-size: 20MB
+  tomcat:
+    uri-encoding: UTF-8     # tomcat的URI编码
+    accept-count: 200       # 连接数满后的排队数，默认为100
+    threads:
+      max: 200              # tomcat最大线程数，默认为200
+      min-spare: 20         # Tomcat启动初始化的线程数，默认值10
+    connection-timeout: 30s
+    max-http-response-header-size: 2MB
 
-# mybatis plus
-mybatis-plus:
-  mapper-locations: classpath:com/derrors/pt/tools/data/**/mapper/*Mapper.xml
-  global-config:
-    db-config:
-      id-type: auto                     # 主键类型
-      logic-delete-field: is_deleted    # 逻辑删除配置
-      logic-delete-value: 1
-      logic-not-delete-value: 0
-    banner: false
 
-# 日志配置
-logging:
-  level:
-    com.com.derrors: debug
-    org.springframework: info
-  file:
-    path: logs
+# Spring 配置
+spring:
+  profiles:
+    active: dev
