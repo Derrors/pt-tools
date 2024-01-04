@@ -1,13 +1,14 @@
-package com.derrors.pt.tools.app;
+package com.derrors.pt.tools;
 
 import lombok.extern.slf4j.Slf4j;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 @Slf4j
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+@SpringBootApplication
 public class PtToolsApplication {
 
     public static void main(String[] args) {

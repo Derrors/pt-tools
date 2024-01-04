@@ -14,5 +14,5 @@ public interface PtNodeRepository {
 
     List<PtNode> getByPtCodes(List<String> ptCodes);
 
-    int deleteByPtCode(String ptCode);
+    int deleteByPtCodes(List<String> ptCodes);
 }

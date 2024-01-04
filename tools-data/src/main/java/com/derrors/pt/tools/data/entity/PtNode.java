@@ -66,5 +66,5 @@ public class PtNode extends BaseEntity<PtNode> {
     public static final String DESC = "description";
     public static final String CODE = "code";
     public static final String URL = "url";
-    public static final String IS_DELETED = "id_deleted";
+    public static final String IS_DELETED = "is_deleted";
 }

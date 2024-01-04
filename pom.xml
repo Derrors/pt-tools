@@ -7,7 +7,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.2.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
     <groupId>com.derrors</groupId>
     <artifactId>pt-tools</artifactId>
@@ -28,9 +28,11 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <pt-tools.version>0.0.1-SNAPSHOT</pt-tools.version>
-        <mysql-connector.version>8.0.33</mysql-connector.version>
-        <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
-        <mybatis-plus-generator.version>3.5.3.1</mybatis-plus-generator.version>
+        <springdoc-openapi.version>2.2.0</springdoc-openapi.version>
+        <mysql-connector.version>8.2.0</mysql-connector.version>
+        <mybatis-plus.version>3.5.5</mybatis-plus.version>
+        <mybatis-spring.version>3.0.3</mybatis-spring.version>
+<!--        <mybatis-plus-generator.version>3.5.3.1</mybatis-plus-generator.version>-->
 
         <hutool.version>5.8.20</hutool.version>
 <!--        <maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>-->
@@ -73,8 +75,8 @@
 
         <!-- Mysql JDBC 驱动 -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
             <version>${mysql-connector.version}</version>
         </dependency>
         <!-- Mybatis-Plus -->
@@ -82,13 +84,24 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>${mybatis-plus.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.mybatis</groupId>
+                    <artifactId>mybatis-spring</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>${mybatis-spring.version}</version>
         </dependency>
         <!-- mybatis plus 代码生成器 -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-generator</artifactId>
-            <version>${mybatis-plus-generator.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.baomidou</groupId>-->
+<!--            <artifactId>mybatis-plus-generator</artifactId>-->
+<!--            <version>${mybatis-plus-generator.version}</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <dependencyManagement>
@@ -109,6 +122,11 @@
                 <groupId>com.derrors</groupId>
                 <artifactId>tools-data</artifactId>
                 <version>${pt-tools.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${springdoc-openapi.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

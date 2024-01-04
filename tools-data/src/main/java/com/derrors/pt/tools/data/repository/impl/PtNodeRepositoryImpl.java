@@ -26,6 +26,7 @@ import java.util.Objects;
 
 import cn.hutool.core.collection.CollectionUtil;
 import jakarta.annotation.Resource;
+import org.springframework.util.CollectionUtils;
 
 /**
  * @author derrors
@@ -53,7 +54,7 @@ public class PtNodeRepositoryImpl implements PtNodeRepository {
         log.info("PtNode: {} exists in DB, do update.", ptNode);
         PtNode toUpdate = ptNodesInDb.get(0);
         UpdateWrapper<PtNode> updateWrapper = new UpdateWrapper<>();
-        updateWrapper.eq(PtNode.ID, toUpdate.getId())
+        updateWrapper.eq(PtNode.CODE, toUpdate.getCode())
             .set(StringUtils.isNotBlank(ptNode.getName()), PtNode.NAME, ptNode.getName())
             .set(StringUtils.isNotBlank(ptNode.getAlias()), PtNode.ALIAS, ptNode.getAlias())
             .set(StringUtils.isNotBlank(ptNode.getCode()), PtNode.CODE, ptNode.getCode())
@@ -79,12 +80,12 @@ public class PtNodeRepositoryImpl implements PtNodeRepository {
     }
 
     @Override
-    public int deleteByPtCode(String ptCode) {
-        if (StringUtils.isBlank(ptCode)) {
+    public int deleteByPtCodes(List<String> ptCodes) {
+        if (CollectionUtils.isEmpty(ptCodes)) {
             return 0;
         }
         UpdateWrapper<PtNode> updateWrapper = new UpdateWrapper<>();
-        updateWrapper.eq(PtNode.CODE, ptCode)
+        updateWrapper.in(PtNode.CODE, ptCodes)
             .set(PtNode.IS_DELETED, 1);
         return ptNodeMapper.update(null, updateWrapper);
     }

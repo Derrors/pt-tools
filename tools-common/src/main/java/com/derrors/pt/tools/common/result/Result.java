@@ -5,6 +5,7 @@
  **/
 package com.derrors.pt.tools.common.result;
 
+import com.derrors.pt.tools.common.exception.BizException;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -19,20 +20,32 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Result<T> {
-    public static final int OK = 200;
-    // 跳转系统内部错误页面
-    public static final int ERROR = 500;
-    // 告知无权限或者跳转无权限页面
-    public static final int NOT_AUTHORIZED = 403;
-    // 需要重新登陆
-    public static final int NOT_AUTHENTICATED = 401;
-    private static final String MESSAGE = "OK";
-
-    public static final Result SUCCESS_RESULT = new Result();
 
     private int code;
     private String msg;
     private T data;
+
+    /**
+     * 处理成功
+     */
+    public static final int OK = 200;
+    /**
+     * 服务内部错误
+     */
+    public static final int ERROR = 500;
+    /**
+     * 无权限
+     */
+    public static final int NOT_AUTHORIZED = 403;
+    /**
+     * 需要重新登陆
+     */
+    public static final int NOT_AUTHENTICATED = 401;
+
+    public static final Result SUCCESS_RESULT = new Result();
+
+    private static final String MESSAGE = "OK";
+
 
     public Result() {
         code = OK;
@@ -57,6 +70,13 @@ public class Result<T> {
         Result result = new Result<>();
         result.setCode(code);
         result.setMsg(message);
+        return result;
+    }
+
+    public static Result failWithMsg(BizException bizException) {
+        Result result = new Result<>();
+        result.setCode(ERROR);
+        result.setMsg(bizException.getErrorMsg());
         return result;
     }
 

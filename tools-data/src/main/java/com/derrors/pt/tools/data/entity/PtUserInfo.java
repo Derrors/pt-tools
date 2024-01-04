@@ -30,6 +30,11 @@ public class PtUserInfo extends BaseEntity<PtUserInfo> {
     private String userId;
 
     /**
+     * pt 站点 Code
+     */
+    private String ptCode;
+
+    /**
      * 用户密钥
      */
     private String passkey;
@@ -56,6 +61,7 @@ public class PtUserInfo extends BaseEntity<PtUserInfo> {
     private Integer isDeleted;
 
     public static final String USER_ID = "user_id";
+    public static final String PT_CODE = "pt_code";
     public static final String PASS_KEY = "passkey";
     public static final String REGISTER_DATE = "register_date";
     public static final String EMAIL = "email";
