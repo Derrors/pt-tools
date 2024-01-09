@@ -44,6 +44,9 @@ public class PtNodeVo {
     private String description;
 
     public static PtNodeVo buildForm(PtNode ptNode) {
+        if (ptNode == null) {
+            return null;
+        }
         PtNodeVo ptNodeVo = new PtNodeVo();
         ptNodeVo.setName(ptNode.getName());
         ptNodeVo.setAlias(ptNode.getAlias());

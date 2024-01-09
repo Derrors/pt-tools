@@ -2,6 +2,7 @@ package com.derrors.pt.tools.controller;
 
 import static com.derrors.pt.tools.common.exception.enums.ExceptionEnum.SYSTEM_ERROR;
 
+import com.derrors.pt.tools.data.entity.PtNode;
 import com.derrors.pt.tools.service.PtNodeService;
 import com.derrors.pt.tools.common.core.request.PtNodeAddRequest;
 import com.derrors.pt.tools.common.core.request.PtNodeCodesRequest;
@@ -48,8 +49,15 @@ public class PtNodeController {
     @PostMapping("/add")
     @Operation(summary = "新增站点信息")
     public Result<Void> addPtNode(@RequestBody PtNodeAddRequest request) {
+        PtNode ptNode = PtNode.builder()
+            .name(request.getName())
+            .alias(request.getAlias())
+            .code(request.getCode())
+            .url(request.getUrl())
+            .description(request.getDescription())
+            .build();
         try {
-            boolean result = ptNodeService.addPtNode(request);
+            boolean result = ptNodeService.addPtNode(ptNode);
             if (!result) {
                 return Result.internalError(SYSTEM_ERROR.getMsg());
             }
