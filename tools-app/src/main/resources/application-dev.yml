@@ -36,3 +36,8 @@ springdoc:
     path: /api-docs
   swagger-ui:
     operationsSorter: method
+
+http:
+  client:
+    atmos:
+      url: https://hdatmos.club

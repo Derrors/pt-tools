@@ -26,7 +26,7 @@ create table if not exists pt_user_info
     passkey       varchar(128)                       not null comment '密钥',
     register_date datetime                           null comment '注册日期',
     email         varchar(256)                       null comment '邮箱',
-    cookies       json                               null comment '用户 Cookie',
+    cookies       varchar(1024)                      null comment '用户 Cookie',
     create_time   datetime default CURRENT_TIMESTAMP not null comment '创建时间',
     update_time   datetime default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
     is_deleted    tinyint  default 0                 not null comment '是否删除',

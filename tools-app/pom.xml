@@ -21,10 +21,17 @@
         <dependency>
             <groupId>com.derrors</groupId>
             <artifactId>tools-common</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.derrors</groupId>
             <artifactId>tools-data</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.derrors</groupId>
+            <artifactId>tools-integration</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springdoc</groupId>

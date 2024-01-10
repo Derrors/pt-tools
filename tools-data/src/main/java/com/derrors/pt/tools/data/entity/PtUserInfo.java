@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.derrors.pt.tools.common.core.base.BaseEntity;
 
 import java.io.Serial;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -18,6 +19,7 @@ import java.util.Map;
  */
 
 @Data
+@Builder
 @EqualsAndHashCode(callSuper = true)
 public class PtUserInfo extends BaseEntity<PtUserInfo> {
 
@@ -52,7 +54,7 @@ public class PtUserInfo extends BaseEntity<PtUserInfo> {
     /**
      * Cookie
      */
-    private Map<String, String> cookies;
+    private String cookies;
 
     /**
      * 是否删除 1:已删除 0:未删除

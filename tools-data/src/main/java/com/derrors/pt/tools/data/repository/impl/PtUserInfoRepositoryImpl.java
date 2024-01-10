@@ -48,7 +48,7 @@ public class PtUserInfoRepositoryImpl implements PtUserInfoRepository {
             .eq(PtUserInfo.PASS_KEY, ptUserInfoInDb.getPtCode())
             .set(StringUtils.isNotBlank(ptUserInfo.getPasskey()), PtUserInfo.PASS_KEY, ptUserInfo.getPasskey())
             .set(StringUtils.isNotBlank(ptUserInfo.getEmail()), PtUserInfo.EMAIL, ptUserInfo.getEmail())
-            .set(CollectionUtil.isNotEmpty(ptUserInfo.getCookies()), PtUserInfo.COOKIES, ptUserInfo.getCookies())
+            .set(StringUtils.isNotBlank(ptUserInfo.getCookies()), PtUserInfo.COOKIES, ptUserInfo.getCookies())
             .set(Objects.nonNull(ptUserInfo.getRegisterDate()), PtUserInfo.REGISTER_DATE, ptUserInfo.getRegisterDate());
         return ptUserInfoMapper.update(null, updateWrapper);
     }

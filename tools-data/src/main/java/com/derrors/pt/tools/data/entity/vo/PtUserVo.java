@@ -39,7 +39,7 @@ public class PtUserVo {
     /**
      * Cookie
      */
-    private Map<String, String> cookies;
+    private String cookies;
 
     public static PtUserVo buildForm(PtUserInfo ptUser) {
         if (ptUser == null) {

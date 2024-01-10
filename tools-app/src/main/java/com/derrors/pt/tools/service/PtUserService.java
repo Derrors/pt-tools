@@ -50,4 +50,12 @@ public class PtUserService {
     public boolean deletePtUser(String userId, String ptCode) {
         return 1 == ptUserInfoRepository.deleteByUserIdAndPtCode(userId, ptCode);
     }
+
+    public String getUserCookies(String userId, String ptCode) {
+        PtUserInfo ptUser = ptUserInfoRepository.getByUserIdAndPtCode(userId, ptCode);
+        if (ptUser == null) {
+            return null;
+        }
+        return ptUser.getCookies();
+    }
 }
