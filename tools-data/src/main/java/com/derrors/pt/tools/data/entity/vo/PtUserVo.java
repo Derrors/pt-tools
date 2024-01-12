@@ -1,8 +1,8 @@
 package com.derrors.pt.tools.data.entity.vo;
 
 import com.derrors.pt.tools.data.entity.PtUserInfo;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Map;
 import lombok.Data;
 
 /**
@@ -15,6 +15,11 @@ public class PtUserVo {
      * 用户 Id
      */
     private String userId;
+
+    /**
+     * 用户 UID
+     */
+    private Integer uid;
 
     /**
      * pt 站点 Code
@@ -37,9 +42,29 @@ public class PtUserVo {
     private String email;
 
     /**
-     * Cookie
+     * 魔力值
      */
-    private String cookies;
+    private String bonus;
+
+    /**
+     * 分享率
+     */
+    private String shareRatio;
+
+    /**
+     * 上传量
+     */
+    private String uploadCount;
+
+    /**
+     * 下载量
+     */
+    private String downloadCount;
+
+    /**
+     * 等级
+     */
+    private String level;
 
     public static PtUserVo buildForm(PtUserInfo ptUser) {
         if (ptUser == null) {
@@ -47,10 +72,15 @@ public class PtUserVo {
         }
         PtUserVo ptUserVo = new PtUserVo();
         ptUserVo.setUserId(ptUser.getUserId());
+        ptUserVo.setUid(ptUser.getUid());
         ptUserVo.setEmail(ptUser.getEmail());
         ptUserVo.setPasskey(ptUser.getPasskey());
         ptUserVo.setRegisterDate(ptUser.getRegisterDate());
-        ptUserVo.setCookies(ptUser.getCookies());
+        ptUserVo.setBonus(ptUser.getBonus());
+        ptUserVo.setShareRatio(ptUser.getShareRatio());
+        ptUserVo.setUploadCount(ptUser.getUploadCount());
+        ptUserVo.setDownloadCount(ptUser.getDownloadCount());
+        ptUserVo.setLevel(ptUser.getLevel());
         return ptUserVo;
     }
 }

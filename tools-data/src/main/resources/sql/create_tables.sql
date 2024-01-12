@@ -19,17 +19,23 @@ create table if not exists pt_node
 
 create table if not exists pt_user_info
 (
-    id            bigint unsigned auto_increment     not null comment '主键 id'
+    id             bigint unsigned auto_increment     not null comment '主键 id'
         primary key,
-    user_id       varchar(256)                       not null comment '用户 id',
-    pt_code       varchar(128)                       not null comment '站点编码',
-    passkey       varchar(128)                       not null comment '密钥',
-    register_date datetime                           null comment '注册日期',
-    email         varchar(256)                       null comment '邮箱',
-    cookies       varchar(1024)                      null comment '用户 Cookie',
-    create_time   datetime default CURRENT_TIMESTAMP not null comment '创建时间',
-    update_time   datetime default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
-    is_deleted    tinyint  default 0                 not null comment '是否删除',
+    user_id        varchar(256)                       not null comment '用户 id',
+    uid            int(16)                            null comment '用户 uid',
+    pt_code        varchar(128)                       not null comment '站点编码',
+    passkey        varchar(128)                       not null comment '密钥',
+    register_date  datetime                           null comment '注册日期',
+    email          varchar(256)                       null comment '邮箱',
+    bonus          varchar(256)                       null comment '魔力值',
+    share_ratio    varchar(256)                       null comment '分享率',
+    upload_count   varchar(256)                       null comment '上传量',
+    download_count varchar(256)                       null comment '下载量',
+    level          varchar(256)                       null comment '等级',
+    cookies        varchar(1024)                      null comment '用户 Cookie',
+    create_time    datetime default CURRENT_TIMESTAMP not null comment '创建时间',
+    update_time    datetime default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
+    is_deleted     tinyint  default 0                 not null comment '是否删除',
     constraint uk_user_code_is_deleted
         unique (user_id, pt_code, is_deleted)
 ) comment 'PT 用户信息';

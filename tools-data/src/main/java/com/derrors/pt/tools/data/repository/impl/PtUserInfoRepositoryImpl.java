@@ -46,8 +46,14 @@ public class PtUserInfoRepositoryImpl implements PtUserInfoRepository {
         UpdateWrapper<PtUserInfo> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq(PtUserInfo.USER_ID, ptUserInfoInDb.getUserId())
             .eq(PtUserInfo.PASS_KEY, ptUserInfoInDb.getPtCode())
+            .set(Objects.nonNull(ptUserInfo.getUid()), PtUserInfo.UID, ptUserInfo.getUid())
             .set(StringUtils.isNotBlank(ptUserInfo.getPasskey()), PtUserInfo.PASS_KEY, ptUserInfo.getPasskey())
             .set(StringUtils.isNotBlank(ptUserInfo.getEmail()), PtUserInfo.EMAIL, ptUserInfo.getEmail())
+            .set(StringUtils.isNotBlank(ptUserInfo.getBonus()), PtUserInfo.BONUS, ptUserInfo.getBonus())
+            .set(StringUtils.isNotBlank(ptUserInfo.getShareRatio()), PtUserInfo.SHARE_RATIO, ptUserInfo.getShareRatio())
+            .set(StringUtils.isNotBlank(ptUserInfo.getUploadCount()), PtUserInfo.UPLOAD_COUNT, ptUserInfo.getUploadCount())
+            .set(StringUtils.isNotBlank(ptUserInfo.getDownloadCount()), PtUserInfo.DOWNLOAD_COUNT, ptUserInfo.getDownloadCount())
+            .set(StringUtils.isNotBlank(ptUserInfo.getLevel()), PtUserInfo.LEVEL, ptUserInfo.getLevel())
             .set(StringUtils.isNotBlank(ptUserInfo.getCookies()), PtUserInfo.COOKIES, ptUserInfo.getCookies())
             .set(Objects.nonNull(ptUserInfo.getRegisterDate()), PtUserInfo.REGISTER_DATE, ptUserInfo.getRegisterDate());
         return ptUserInfoMapper.update(null, updateWrapper);

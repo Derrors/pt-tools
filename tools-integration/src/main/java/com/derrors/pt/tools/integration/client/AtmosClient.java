@@ -19,4 +19,7 @@ public interface AtmosClient {
 
     @PostExchange("/thanks.php")
     ResponseEntity<Void> thanksForPoints(@RequestHeader HttpHeaders headers, @RequestParam("id") Integer id);
+
+    @GetExchange("/userdetails.php")
+    ResponseEntity<String> userDetail(@RequestHeader HttpHeaders headers, @RequestParam("id") Integer id);
 }
