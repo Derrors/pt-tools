@@ -1,4 +1,4 @@
-package com.derrors.pt.tools.common.core.base;
+package com.derrors.pt.tools.data.entity.base;
 
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;

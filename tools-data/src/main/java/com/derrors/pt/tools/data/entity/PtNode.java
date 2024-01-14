@@ -1,7 +1,7 @@
 package com.derrors.pt.tools.data.entity;
 
 import com.baomidou.mybatisplus.annotation.TableLogic;
-import com.derrors.pt.tools.common.core.base.BaseEntity;
+import com.derrors.pt.tools.data.entity.base.BaseEntity;
 
 import java.io.Serial;
 import lombok.AllArgsConstructor;

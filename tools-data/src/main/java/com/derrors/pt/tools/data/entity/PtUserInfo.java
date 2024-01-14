@@ -1,17 +1,13 @@
 package com.derrors.pt.tools.data.entity;
 
 import com.baomidou.mybatisplus.annotation.TableLogic;
-import com.derrors.pt.tools.common.core.base.BaseEntity;
-
+import com.derrors.pt.tools.data.entity.base.BaseEntity;
 import java.io.Serial;
-import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
-import java.time.LocalDateTime;
-import java.util.Map;
 import lombok.NoArgsConstructor;
 
 /**
