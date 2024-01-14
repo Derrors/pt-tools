@@ -8,7 +8,7 @@ import lombok.Data;
  */
 
 @Data
-public class PtUseerAddRequest {
+public class PtUserAddRequest {
 
     /**
      * 用户 Id
@@ -18,7 +18,7 @@ public class PtUseerAddRequest {
     /**
      * 用户 UID
      */
-    private String uid;
+    private Integer uid;
 
     /**
      * pt 站点 Code

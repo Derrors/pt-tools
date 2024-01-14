@@ -9,7 +9,11 @@ import lombok.Getter;
 @Getter
 public enum PtCodeEnum {
 
+    MTEAM("mteam"),
     ATMOS("atmos"),
+    DOLBY("dolby"),
+    CARPT("carpt"),
+    CYANBUG("cyanbug"),
     ;
 
 
@@ -17,5 +21,14 @@ public enum PtCodeEnum {
 
     PtCodeEnum(String code) {
         this.code = code;
+    }
+
+    public static PtCodeEnum enumOf(String ptCode) {
+        for (PtCodeEnum ptCodeEnum : PtCodeEnum.values()) {
+            if (ptCodeEnum.getCode().equals(ptCode)) {
+                return ptCodeEnum;
+            }
+        }
+        return null;
     }
 }

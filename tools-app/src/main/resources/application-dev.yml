@@ -37,7 +37,10 @@ springdoc:
   swagger-ui:
     operationsSorter: method
 
-http:
+https:
   client:
-    atmos:
-      url: https://hdatmos.club
+    mteam: https://kp.m-team.cc
+    atmos: https://hdatmos.club
+    dolby: https://www.hddolby.com
+    car: https://carpt.net
+    cyan: https://cyanbug.net

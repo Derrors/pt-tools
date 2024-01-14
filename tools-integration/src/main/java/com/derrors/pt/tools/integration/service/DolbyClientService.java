@@ -1,6 +1,6 @@
 package com.derrors.pt.tools.integration.service;
 
-import static com.derrors.pt.tools.common.enums.PtCodeEnum.ATMOS;
+import static com.derrors.pt.tools.common.enums.PtCodeEnum.DOLBY;
 
 import com.derrors.pt.tools.integration.client.PtHttpClient;
 import jakarta.annotation.Resource;
@@ -13,18 +13,18 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-public class AtmosClientService extends AbstractClientService {
+public class DolbyClientService extends AbstractClientService {
 
     @Resource
-    private PtHttpClient atmosClient;
+    private PtHttpClient dolbyClient;
 
     @Override
     public String getScene() {
-        return ATMOS.name();
+        return DOLBY.name();
     }
 
     @Override
     protected PtHttpClient getHttpClient() {
-        return atmosClient;
+        return dolbyClient;
     }
 }

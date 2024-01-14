@@ -13,11 +13,12 @@ public enum ExceptionEnum {
     // 系统内部错误
     SYSTEM_ERROR("000001", "Internal System Error."),
 
+
     // 配置场景业务异常
     PT_NODE_PARAM_EMPTY("200001", "The name or code of the pt node can't be empty."),
     PT_NODE_CODE_EMPTY("200002", "The code of the pt node can't be empty."),
     PT_USER_PARAM_EMPTY("200003", "The userId or the ptCode is blank, so can't process ptUser."),
-
+    NOT_SUPPORTED_OPERATION("200010", "The operation is not supported.")
     ;
 
     private final String code;

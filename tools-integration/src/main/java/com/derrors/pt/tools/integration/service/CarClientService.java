@@ -1,6 +1,6 @@
 package com.derrors.pt.tools.integration.service;
 
-import static com.derrors.pt.tools.common.enums.PtCodeEnum.ATMOS;
+import static com.derrors.pt.tools.common.enums.PtCodeEnum.CARPT;
 
 import com.derrors.pt.tools.integration.client.PtHttpClient;
 import jakarta.annotation.Resource;
@@ -13,18 +13,18 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-public class AtmosClientService extends AbstractClientService {
+public class CarClientService extends AbstractClientService {
 
     @Resource
-    private PtHttpClient atmosClient;
+    private PtHttpClient carClient;
 
     @Override
     public String getScene() {
-        return ATMOS.name();
+        return CARPT.name();
     }
 
     @Override
     protected PtHttpClient getHttpClient() {
-        return atmosClient;
+        return carClient;
     }
 }
